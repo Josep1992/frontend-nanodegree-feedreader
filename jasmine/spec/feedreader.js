@@ -1,6 +1,5 @@
 const menu = document.querySelector('.menu-icon-link');
 const body = document.body;
-const feed = $('.feed .entry');
 const loaded = [];
 
 //#region
