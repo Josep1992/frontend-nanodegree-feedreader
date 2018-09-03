@@ -1,6 +1,6 @@
 const menu = document.querySelector('.menu-icon-link');
 const body = document.body;
-const feed = document.querySelector('.feed');
+const feed = $('.feed .entry');
 const loaded = [];
 
 //#region
@@ -88,9 +88,11 @@ $(
                * Remember, loadFeed() is asynchronous so this test will require
                * the use of Jasmine's beforeEach and asynchronous done() function.
                */
-      beforeEach((done) => loadFeed(0, done));
+      beforeEach((done) => {
+        loadFeed(0, done);
+      });
       it('Contains at least one entry', () => {
-        expect(feed.children.length).not.toBe(0);
+        expect($('.feed .entry').length).not.toBe(0);
       });
     });
 
@@ -106,9 +108,9 @@ $(
         loadFeed(0, () => {
           const entries = document.querySelectorAll('.entry');
           const entry_1 = entries[0];
+          const entry_2 = entries[1];
           loaded.push(entry_1);
           loadFeed(1, () => {
-            const entry_2 = entries[1];
             loaded.push(entry_2);
             done();
           });
