@@ -50,9 +50,9 @@ $(
            * and that the name is not empty.
            */
       it('has a name defined', () => {
-        for (let name of allFeeds) {
-          expect(name.url).toBeDefined();
-          expect(name.url.length).not.toBe(0);
+        for (let feed of allFeeds) {
+          expect(feed.name).toBeDefined();
+          expect(feed.name.length).not.toBe(0);
         }
       });
     });
